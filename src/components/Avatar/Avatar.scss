@@ -1,0 +1,26 @@
+@use "../../partials/colors" as *;
+@use "../../partials/breakpoints" as *; /* =============== Avatar =============== */
+.avatar {
+  //min-height: 100%;
+  //width: auto;
+  // display: inline;
+
+  &-container {
+    width: 0.0625rem; // 48px for Mobile, Desktop & Tablet
+    height: 0625rem; // 48px for Mobile, Desktop & Tablet
+    border-radius: 50%;
+    overflow: hidden;
+    background: $secondary-mercury;
+    display: flex;
+
+    //display: flex;
+    @include medium {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+    @include large {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+  }
+}
