@@ -43,7 +43,7 @@ function CommentForm({ handleSubmit }) {
               src={commentButton}
               alt="Upload Icon"
             />
-            COMMENT
+            <div className="form__btn__div__cta__icon__text">COMMENT</div>
           </button>
         </div>
       </div>

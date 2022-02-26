@@ -1,6 +1,7 @@
 @use "../../partials/variables" as *;
 @use "../../partials/mixins" as *;
 @use "../../partials/colors";
+@use "../../partials/breakpoints" as *;
 
 /* =============== Comment Form =============== */
 .form {
@@ -70,7 +71,16 @@
 
   &__btn {
     &__div {
-      padding: 0.0625rem 2rem;
+      padding-top: 1rem;
+      width: 100%;
+      @include medium {
+        width: auto;
+        padding: 0.0625rem 2rem;
+      }
+      @include large {
+        width: auto;
+        padding: 0.0625rem 2rem;
+      }
       &__cta {
         @include button-mobile;
         justify-content: flex-start;
@@ -84,6 +94,16 @@
         &__icon {
           padding-left: 0.5rem;
           padding-right: 1rem;
+
+          &__text {
+            margin: auto;
+            @include medium {
+              margin: 0;
+            }
+            @include large {
+              margin: 0;
+            }
+          }
         }
       }
     }
