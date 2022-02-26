@@ -6,12 +6,13 @@
   // display: inline;
 
   &-container {
+    display: flex;
     border-radius: 50%;
     height: 2.75rem;
     width: 2.75rem;
     overflow: hidden;
     background: $secondary-mercury;
-
+    display: none;
     //display: flex;
     @include medium {
       display: flex;
@@ -19,20 +20,19 @@
     @include large {
       display: flex;
     }
-
-    &-mobile {
-      border-radius: 50%;
-      height: 2.75rem;
-      width: 2.75rem;
-      overflow: hidden;
-      background: $secondary-mercury;
-      display: flex;
-      @include medium {
-        display: none;
-      }
-      @include large {
-        display: none;
-      }
+  }
+  &-mobile {
+    border-radius: 50%;
+    height: 2.75rem;
+    width: 2.75rem;
+    overflow: hidden;
+    background: $secondary-mercury;
+    display: flex;
+    @include medium {
+      display: none;
+    }
+    @include large {
+      display: none;
     }
   }
 }

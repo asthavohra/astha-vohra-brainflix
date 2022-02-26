@@ -1,5 +1,6 @@
 import "./CommentForm.scss";
 import Avatar from "../Avatar/Avatar";
+import AvatarMobile from "../Avatar/AvatarMobile";
 import commentButton from "../../assets/icons/add_comment.svg";
 
 function CommentForm({ handleSubmit }) {
@@ -8,6 +9,7 @@ function CommentForm({ handleSubmit }) {
       <div className="form__personal-info">
         <div className="form__avatar">
           <Avatar />
+          <AvatarMobile />
         </div>
       </div>
       <div className="form__container">

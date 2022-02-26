@@ -1,5 +1,4 @@
 import "./CommentItems.scss";
-import Avatar from "../Avatar/Avatar";
 
 // Calculate how long ago was the comment posted
 {
@@ -56,6 +55,9 @@ function CommentItems({ comments }) {
           <article className="comment" key={comment.timestamp}>
             <div className="comment__left">
               {/* Insert Avatar Component instead of code below for next sprint */}
+              <div className="avatar-mobile">
+                {/* <img src={avatar} className="avatar" alt="Avatar"/> */}
+              </div>
               <div className="avatar-container">
                 {/* <img src={avatar} className="avatar" alt="Avatar"/> */}
               </div>

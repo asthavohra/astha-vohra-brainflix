@@ -31,10 +31,12 @@
       &__title {
         @include header-mobile;
         margin: $padding * 2 0;
+        border-bottom: $divider;
 
         @media (min-width: 768px) {
           @include h1-header-desktop;
           margin: $padding * 3 0;
+          border-bottom: none;
         }
       }
     }
@@ -46,7 +48,9 @@
     flex-direction: row;
     justify-content: space-between;
     border-bottom: $divider;
-    border-top: $divider;
+
+    margin-block-start: 0px;
+    margin-block-end: 0;
 
     @media (min-width: 768px) {
       flex-direction: row;
@@ -96,7 +100,7 @@
   &__stats {
     display: flex;
     align-items: center;
-    margin-right: $padding * 3;
+    padding-right: 1rem;
 
     @media (min-width: 1280px) {
       margin-right: $padding * 5;
