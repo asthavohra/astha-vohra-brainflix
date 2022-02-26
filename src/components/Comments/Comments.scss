@@ -9,11 +9,9 @@
   align-items: center;
 
   @media (min-width: 768px) {
-    padding: $padding * 3;
   }
 
   @media (min-width: 1280px) {
-    padding: $padding * 3 0;
   }
 
   // @media (min-width: 1280px) {
@@ -23,10 +21,15 @@
   &__count {
     @include subheader-mobile;
     align-self: flex-start;
-    margin: $padding 0;
+    margin: 1rem 1rem;
 
     @media (min-width: 768px) {
       @include subheader-desktop;
+      margin: 0 2rem;
+    }
+    @media (min-width: 1280px) {
+      @include subheader-desktop;
+      margin: 0 1rem;
     }
   }
 
