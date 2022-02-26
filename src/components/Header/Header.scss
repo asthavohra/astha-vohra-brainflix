@@ -2,7 +2,7 @@
 @use "../../partials/breakpoints" as *;
 .header {
   flex-direction: column;
-  width: 100%;
+
   display: flex;
 
   @include medium {
@@ -29,7 +29,6 @@
     padding-bottom: 1rem;
 
     @include medium {
-      width: 50%;
       display: flex;
       align-items: center;
       justify-content: flex-start;

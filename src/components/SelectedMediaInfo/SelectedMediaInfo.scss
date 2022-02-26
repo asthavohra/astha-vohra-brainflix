@@ -46,19 +46,22 @@
     flex-direction: row;
     justify-content: space-between;
     border-bottom: $divider;
+    border-top: $divider;
 
     @media (min-width: 768px) {
       flex-direction: row;
       justify-content: space-between;
+      border-top: none;
     }
   }
 
   &__top {
     display: flex;
     align-items: baseline;
-
+    flex-direction: column;
     @media (min-width: 768px) {
       padding-bottom: 0;
+      flex-direction: row;
     }
   }
 
@@ -77,11 +80,17 @@
 
     @media (min-width: 768px) {
       @include paragraph-desktop;
+      padding-left: 1rem;
     }
   }
 
   &__bottom {
     display: flex;
+    flex-direction: column;
+    @media (min-width: 768px) {
+      padding-bottom: 0;
+      flex-direction: row;
+    }
   }
 
   &__stats {
