@@ -17,6 +17,7 @@
   &__left {
     display: flex;
     width: 18%;
+    padding-top: 1rem;
 
     @media (min-width: 768px) {
       width: 9%;
@@ -24,41 +25,34 @@
   }
 
   &__right {
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%;
+    &__main {
+      display: flex;
+      justify-content: space-between;
+
+      &__name {
+        @include paragraph-mobile;
+        font-weight: 600;
+        display: flex;
+
+        @media (min-width: 768px) {
+          @include list-desktop;
+          font-weight: 600;
+        }
+      }
+      &__timestamp {
+        @include paragraph-mobile;
+        color: colors.$secondary-silver;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 1rem;
+        @media (min-width: 768px) {
+          @include list-desktop;
+        }
+      }
+    }
 
     @media (min-width: 768px) {
       width: 91%;
-    }
-  }
-
-  &__name {
-    @include paragraph-mobile;
-    font-weight: 600;
-    display: flex;
-    width: 60%;
-    padding-bottom: $padding;
-
-    @media (min-width: 768px) {
-      @include list-desktop;
-      font-weight: 600;
-      width: auto;
-      margin-right: $padding * 2;
-    }
-  }
-
-  &__timestamp {
-    @include paragraph-mobile;
-    color: colors.$secondary-silver;
-    display: flex;
-    justify-content: flex-end;
-    width: 40%;
-    padding-bottom: $padding;
-
-    @media (min-width: 768px) {
-      @include list-desktop;
-      width: auto;
     }
   }
 
@@ -66,10 +60,10 @@
     @include paragraph-mobile;
     display: flex;
     width: 100%;
-
+    margin-block-start: 0;
+    margin-block-end: 0;
     @media (min-width: 768px) {
       @include paragraph-desktop;
-      margin-right: $padding * 5;
     }
   }
 }

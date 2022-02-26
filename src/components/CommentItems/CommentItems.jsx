@@ -61,9 +61,21 @@ function CommentItems({ comments }) {
               </div>
             </div>
             <div className="comment__right">
-              <h3 className="comment__name">{comment.name}</h3>
-              <p className="comment__timestamp">{comment.timestamp}</p>
-              <p className="comment__text">{comment.comment}</p>
+              <div className="comment__right__main">
+                <div className="comment__right__main__name">
+                  <h3 className="comment__right__main__name__text">
+                    {comment.name}
+                  </h3>
+                </div>
+                <div className="comment__right__main__timestamp">
+                  <p className="comment__right__main__timestamp__text">
+                    {new Date(comment.timestamp).toLocaleDateString()}
+                  </p>
+                </div>
+              </div>
+              <div>
+                <p className="comment__text">{comment.comment}</p>
+              </div>
             </div>
           </article>
         );
