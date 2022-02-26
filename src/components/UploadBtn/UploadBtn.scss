@@ -1,5 +1,9 @@
 @use "../../partials/mixins" as *;
 @use "../../partials/variables" as *;
+.upload {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
 .upload-btn {
   @include button-mobile;
   width: 80%;
