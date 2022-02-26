@@ -117,7 +117,9 @@
 
   &__description {
     &__div {
-      padding-right: 1rem;
+      @media (min-width: 768px) {
+        padding-right: 1rem;
+      }
       &__text {
         @include paragraph-mobile;
         width: 100%;

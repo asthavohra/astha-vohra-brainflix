@@ -4,11 +4,9 @@
 
 /* =============== Comments =============== */
 .comments {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: $padding * 2;
 
   @media (min-width: 768px) {
     padding: $padding * 3;
