@@ -13,8 +13,9 @@ function Header() {
         {/*videos.map((video) => (
           <div>{video.id}</div>
         ))*/}
-
-        <img className="header__logo-img" src={logo} alt="BrainFlix Logo" />
+        <div className="header__logo-div">
+          <img className="header__logo-img" src={logo} alt="BrainFlix Logo" />
+        </div>
       </section>
       <section className="header__content">
         <SearchBar />
