@@ -3,7 +3,6 @@ import logo from "../../assets/logo/BrainFlix-logo.svg";
 import SearchBar from "../SearchBar/SearchBar";
 import UploadBtn from "../UploadBtn/UploadBtn";
 import Avatar from "../Avatar/Avatar";
-import AvatarMobile from "../Avatar/AvatarMobile";
 import CommentForm from "../CommentForm/CommentForm";
 import MediaList from "../MediaList/MediaList";
 import videos from "../../data/videos.json";
