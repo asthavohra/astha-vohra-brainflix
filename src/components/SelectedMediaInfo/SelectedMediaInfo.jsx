@@ -51,7 +51,12 @@ function SelectedMediaInfo({ selectedEntry }) {
   return (
     <article className="selected-media">
       <section className="selected-media__info">
-        <h1 className="selected-media__title">{selectedEntry.title}</h1>
+        <div className="selected-media__info__div">
+          <h1 className="selected-media__info__div__title">
+            {selectedEntry.title}
+          </h1>
+        </div>
+
         <div className="selected-media__subtitles">
           <div className="selected-media__top">
             <h2 className="selected-media__channel">
@@ -80,9 +85,11 @@ function SelectedMediaInfo({ selectedEntry }) {
             </div>
           </div>
         </div>
-        <p className="selected-media__description">
-          {selectedEntry.description}
-        </p>
+        <div className="selected-media__description__div">
+          <p className="selected-media__description__div__text">
+            {selectedEntry.description}
+          </p>
+        </div>
       </section>
       <section className="selected-media__comments">
         <Comments comments={selectedEntry.comments} />
