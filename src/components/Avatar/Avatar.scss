@@ -6,21 +6,34 @@
   // display: inline;
 
   &-container {
-    width: 0.0625rem; // 48px for Mobile, Desktop & Tablet
-    height: 0625rem; // 48px for Mobile, Desktop & Tablet
     border-radius: 50%;
+    height: 2.75rem;
+    width: 2.75rem;
     overflow: hidden;
     background: $secondary-mercury;
-    display: flex;
+    display: none;
 
     //display: flex;
     @include medium {
-      height: 2.75rem;
-      width: 2.75rem;
+      display: flex;
     }
     @include large {
+      display: flex;
+    }
+
+    &-mobile {
+      border-radius: 50%;
       height: 2.75rem;
       width: 2.75rem;
+      overflow: hidden;
+      background: $secondary-mercury;
+      display: flex;
+      @include medium {
+        display: none;
+      }
+      @include large {
+        display: none;
+      }
     }
   }
 }
