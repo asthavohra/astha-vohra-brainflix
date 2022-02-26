@@ -28,9 +28,18 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    padding-left: 1rem;
+    padding-right: 1rem;
     width: 100%;
-    @media (min-width: 768px) {
+    @include medium {
       flex-direction: row;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    @include large {
+      flex-direction: row;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 
@@ -52,9 +61,13 @@
   &__textarea {
     @include paragraph-mobile;
     @include form-input;
-    height: 2.25rem;
+    height: 6.25rem;
 
-    @media (min-width: 768px) {
+    @include medium {
+      @include paragraph-desktop;
+      height: 2.5rem;
+    }
+    @include large {
       @include paragraph-desktop;
       height: 2.5rem;
     }
