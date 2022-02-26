@@ -27,11 +27,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    width: 78%;
-
+    width: 100%;
     @media (min-width: 768px) {
       flex-direction: row;
-      width: 91%;
     }
   }
 
@@ -39,11 +37,9 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-bottom: $padding * 2;
 
     @media (min-width: 768px) {
       margin-bottom: 0;
-      margin-right: $padding * 2;
     }
   }
 
@@ -55,11 +51,10 @@
   &__textarea {
     @include paragraph-mobile;
     @include form-input;
-    height: 100px;
+    height: 2.5rem;
 
     @media (min-width: 768px) {
       @include paragraph-desktop;
-      height: 48px;
     }
 
     &::placeholder {
@@ -73,15 +68,23 @@
   }
 
   &__btn {
-    @include button-mobile;
+    &__div {
+      padding: 0 32px;
+      &__cta {
+        @include button-mobile;
+        justify-content: flex-start;
+        @media (min-width: 768px) {
+          width: 160px;
+        }
 
-    @media (min-width: 768px) {
-      @include button-desktop;
-      margin-right: $padding * 5;
-    }
-
-    &:hover {
-      @include button-hover;
+        &:hover {
+          @include button-hover;
+        }
+        &__icon {
+          padding-left: 0.5rem;
+          padding-right: 1rem;
+        }
+      }
     }
   }
 }

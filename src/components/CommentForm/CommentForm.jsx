@@ -15,13 +15,15 @@ function CommentForm({ handleSubmit }) {
           <label htmlFor="comment" className="form__label">
             Join the conversation
           </label>
-          <textarea
+          <input
+            type="text"
             id="comment"
             name="comment"
             className="form__textarea"
-            placeholder="Write comment here"
-          ></textarea>
+            placeholder="Add a new comment"
+          ></input>
         </div>
+        {/*
         <button id="comment-btn" className="form__btn">
           <img
             src={commentButton}
@@ -31,6 +33,17 @@ function CommentForm({ handleSubmit }) {
           />
           Comment
         </button>
+  */}
+        <div className="form__btn__div">
+          <button className="form__btn__div__cta" type="submit">
+            <img
+              className="form__btn__div__cta__icon"
+              src={commentButton}
+              alt="Upload Icon"
+            />
+            COMMENT
+          </button>
+        </div>
       </div>
     </form>
   );
