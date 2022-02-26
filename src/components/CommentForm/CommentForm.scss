@@ -51,10 +51,11 @@
   &__textarea {
     @include paragraph-mobile;
     @include form-input;
-    height: 2.5rem;
+    height: 2.25rem;
 
     @media (min-width: 768px) {
       @include paragraph-desktop;
+      height: 2.5rem;
     }
 
     &::placeholder {
@@ -69,7 +70,7 @@
 
   &__btn {
     &__div {
-      padding: 0 32px;
+      padding: 0.0625rem 2rem;
       &__cta {
         @include button-mobile;
         justify-content: flex-start;
