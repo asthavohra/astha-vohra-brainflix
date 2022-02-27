@@ -10,9 +10,6 @@ function Header() {
   return (
     <header className="header">
       <section className="header__logo" href="">
-        {/*videos.map((video) => (
-          <div>{video.id}</div>
-        ))*/}
         <div className="header__logo-div">
           <img className="header__logo-img" src={logo} alt="BrainFlix Logo" />
         </div>

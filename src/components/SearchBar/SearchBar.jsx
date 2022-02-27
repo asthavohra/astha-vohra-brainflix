@@ -1,6 +1,5 @@
 import "./SearchBar.scss";
 import searchIcon from "../../assets/icons/search.svg";
-
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 
 function SearchBar() {

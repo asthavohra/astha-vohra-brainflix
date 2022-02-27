@@ -25,17 +25,6 @@ function CommentForm({ handleSubmit }) {
             placeholder="Add a new comment"
           ></input>
         </div>
-        {/*
-        <button id="comment-btn" className="form__btn">
-          <img
-            src={commentButton}
-            className="form__btn"
-            id="comment-btn"
-            alt="Comment-Button"
-          />
-          Comment
-        </button>
-  */}
         <div className="form__btn__div">
           <button className="form__btn__div__cta" type="submit">
             <img

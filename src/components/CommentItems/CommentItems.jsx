@@ -8,13 +8,8 @@ function CommentItems({ comments }) {
         return (
           <article className="comment" key={comment.timestamp}>
             <div className="comment__left">
-              {/* Insert Avatar Component instead of code below for next sprint */}
-              <div className="avatar-mobile">
-                {/* <img src={avatar} className="avatar" alt="Avatar"/> */}
-              </div>
-              <div className="avatar-container">
-                {/* <img src={avatar} className="avatar" alt="Avatar"/> */}
-              </div>
+              <div className="avatar-mobile"></div>
+              <div className="avatar-container"></div>
             </div>
             <div className="comment__right">
               <div className="comment__right__main">
