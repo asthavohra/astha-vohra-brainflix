@@ -17,20 +17,20 @@
     aspect-ratio: 16/9;
     max-width: 100%;
     height: auto;
-    max-height: 230px;
+    max-height: 14.375rem;
 
     @include medium {
-      max-width: 700px;
-      max-height: 400px;
+      max-width: 43.75rem;
+      max-height: 25rem;
     }
 
     @include large {
-      max-width: 944px;
-      max-height: 540px;
+      max-width: 59rem;
+      max-height: 33.75rem;
     }
 
     &-source {
-      max-height: 183px;
+      max-height: 11.4375rem;
     }
   }
 }
