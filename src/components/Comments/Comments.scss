@@ -14,10 +14,10 @@
   @include medium {
   }
 
-  @media (min-width: 1280px) {
+  @include large {
   }
 
-  // @media (min-width: 1280px) {
+  //@include large {
   //     width: 60%;
   // }
 
@@ -30,7 +30,7 @@
       @include subheader-desktop;
       margin: 0 2rem;
     }
-    @media (min-width: 1280px) {
+    @include large {
       @include subheader-desktop;
       margin: 0 1rem;
     }

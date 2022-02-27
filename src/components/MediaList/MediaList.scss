@@ -14,7 +14,7 @@
     padding: $padding $padding * 3 $padding * 3;
   }
 
-  @media (min-width: 1280px) {
+  @include large {
     width: 34%;
     padding: $padding * 4 0 0 $padding * 3;
   }

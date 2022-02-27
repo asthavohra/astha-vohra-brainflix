@@ -1,3 +1,4 @@
+@use "../../partials/breakpoints" as *;
 .main {
   width: 100%;
   display: flex;
@@ -9,7 +10,7 @@
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 1280px) {
+    @include large {
       width: 1080px;
       flex-direction: row;
     }
