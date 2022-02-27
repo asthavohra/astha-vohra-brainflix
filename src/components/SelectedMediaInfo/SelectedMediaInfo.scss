@@ -67,6 +67,10 @@
       padding-bottom: 0;
       flex-direction: row;
     }
+    @include large {
+      padding-bottom: 0;
+      flex-direction: row;
+    }
   }
 
   &__channel {
@@ -75,6 +79,10 @@
 
     @include medium {
       @include subheader-desktop;
+    }
+    @include large {
+      @include subheader-desktop;
+      padding-right: 1rem;
     }
   }
 
@@ -86,12 +94,20 @@
       @include paragraph-desktop;
       padding-left: 1rem;
     }
+    @include large {
+      @include paragraph-desktop;
+      padding-left: 1rem;
+    }
   }
 
   &__bottom {
     display: flex;
     flex-direction: column;
     @include medium {
+      padding-bottom: 0;
+      flex-direction: row;
+    }
+    @include large {
       padding-bottom: 0;
       flex-direction: row;
     }
