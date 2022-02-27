@@ -106,6 +106,8 @@
       &__cta {
         @include button-mobile;
         justify-content: flex-start;
+        font-family: "Avenir";
+        font-weight: 400;
         @include medium {
           width: 160px;
         }
