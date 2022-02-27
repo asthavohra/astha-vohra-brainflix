@@ -1,12 +1,14 @@
 @use "../../partials/variables" as *;
 @use "../../partials/mixins" as *;
 @use "../../partials/colors";
+@use "../../partials/typography" as *;
 
 /* =============== Comment Item =============== */
 .comment {
   border-bottom: $divider;
   display: flex;
   justify-content: space-between;
+  font-family: "Avenir";
 
   padding: 1rem 2rem;
 

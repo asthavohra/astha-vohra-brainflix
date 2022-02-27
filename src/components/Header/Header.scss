@@ -1,9 +1,10 @@
 @use "../../partials/variables" as *;
 @use "../../partials/breakpoints" as *;
+@use "../../partials/typography" as *;
 .header {
   flex-direction: column;
-
   display: flex;
+  font-family: "Avenir";
 
   @include medium {
     flex-direction: row;

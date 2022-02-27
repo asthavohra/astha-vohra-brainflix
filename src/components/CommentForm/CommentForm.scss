@@ -2,9 +2,11 @@
 @use "../../partials/mixins" as *;
 @use "../../partials/colors";
 @use "../../partials/breakpoints" as *;
+@use "../../partials/typography" as *;
 
 /* =============== Comment Form =============== */
 .form {
+  font-family: "Avenir";
   display: flex;
   justify-content: space-between;
   width: 100%;

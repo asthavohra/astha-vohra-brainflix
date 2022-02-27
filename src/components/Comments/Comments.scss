@@ -1,12 +1,14 @@
 @use "../../partials/variables" as *;
 @use "../../partials/mixins" as *;
 @use "../../partials/colors";
+@use "../../partials/typography" as *;
 
 /* =============== Comments =============== */
 .comments {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Avenir";
 
   @media (min-width: 768px) {
   }

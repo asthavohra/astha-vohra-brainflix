@@ -2,12 +2,14 @@
 @use "../../partials/variables" as *;
 @use "../../partials/colors" as *;
 @use "../../partials/breakpoints" as *;
+@use "../../partials/typography" as *;
 .searchbar {
   display: flex;
   padding-bottom: 1rem;
   justify-content: space-around;
   padding-right: 1rem;
   padding-left: 1rem;
+  font-family: "Avenir";
   @include medium {
     padding-bottom: 0;
     padding-right: 0;
