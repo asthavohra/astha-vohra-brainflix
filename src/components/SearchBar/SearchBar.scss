@@ -22,15 +22,16 @@
     padding-left: 0;
   }
   &__div {
-    width: 100%;
+    min-width: 15rem;
     padding-right: 1rem;
+    width: 100%;
     @include medium {
       padding-left: 0;
       padding-right: 0;
-      width: 100%;
+      width: auto;
     }
     @include large {
-      width: 100%;
+      width: auto;
       padding-left: 0;
       padding-right: 0;
     }
@@ -41,7 +42,7 @@
       display: flex;
       //margin-bottom: $padding;
 
-      @media (min-width: 768px) {
+      @include medium {
         width: 250px;
         margin-bottom: 0;
       }

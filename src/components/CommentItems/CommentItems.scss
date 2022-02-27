@@ -2,6 +2,7 @@
 @use "../../partials/mixins" as *;
 @use "../../partials/colors";
 @use "../../partials/typography" as *;
+@use "../../partials/breakpoints" as *;
 
 /* =============== Comment Item =============== */
 .comment {
@@ -12,20 +13,20 @@
 
   padding: 1rem 2rem;
 
-  @media (min-width: 768px) {
+  @include medium {
   }
 
   &__left {
     display: flex;
     padding-top: 1rem;
 
-    @media (min-width: 768px) {
+    @include medium {
     }
   }
 
   &__right {
     padding: 0 1rem;
-    @media (min-width: 768px) {
+    @include medium {
     }
     &__main {
       display: flex;
@@ -36,7 +37,7 @@
         font-weight: 600;
         display: flex;
 
-        @media (min-width: 768px) {
+        @include medium {
           @include list-desktop;
           font-weight: 600;
         }
@@ -47,13 +48,13 @@
         display: flex;
         justify-content: flex-end;
         padding-right: 1rem;
-        @media (min-width: 768px) {
+        @include medium {
           @include list-desktop;
         }
       }
     }
 
-    @media (min-width: 768px) {
+    @include medium {
       width: 91%;
     }
   }
@@ -64,7 +65,7 @@
     width: 100%;
     margin-block-start: 0;
     margin-block-end: 0;
-    @media (min-width: 768px) {
+    @include medium {
       @include paragraph-desktop;
     }
   }

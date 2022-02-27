@@ -2,6 +2,7 @@
 @use "../../partials/mixins" as *;
 @use "../../partials/colors";
 @use "../../partials/typography" as *;
+@use "../../partials/breakpoints" as *;
 
 .selected-media {
   width: 100%;
@@ -19,7 +20,7 @@
     flex-direction: column;
     padding: 0 1rem;
 
-    @media (min-width: 768px) {
+    @include medium {
       padding: 0 2rem;
     }
 
@@ -33,7 +34,7 @@
         margin: $padding * 2 0;
         border-bottom: $divider;
 
-        @media (min-width: 768px) {
+        @include medium {
           @include h1-header-desktop;
           margin: $padding * 3 0;
           border-bottom: none;
@@ -52,7 +53,7 @@
     margin-block-start: 0px;
     margin-block-end: 0;
 
-    @media (min-width: 768px) {
+    @include medium {
       flex-direction: row;
       justify-content: space-between;
       border-top: none;
@@ -63,7 +64,7 @@
     display: flex;
     align-items: baseline;
     flex-direction: column;
-    @media (min-width: 768px) {
+    @include medium {
       padding-bottom: 0;
       flex-direction: row;
     }
@@ -73,7 +74,7 @@
     @include subheader-mobile;
     margin-right: $padding;
 
-    @media (min-width: 768px) {
+    @include medium {
       @include subheader-desktop;
     }
   }
@@ -82,7 +83,7 @@
     @include paragraph-mobile;
     color: colors.$secondary-silver;
 
-    @media (min-width: 768px) {
+    @include medium {
       @include paragraph-desktop;
       padding-left: 1rem;
     }
@@ -91,7 +92,7 @@
   &__bottom {
     display: flex;
     flex-direction: column;
-    @media (min-width: 768px) {
+    @include medium {
       padding-bottom: 0;
       flex-direction: row;
     }
@@ -114,21 +115,21 @@
   &__number {
     @include paragraph-mobile;
 
-    @media (min-width: 768px) {
+    @include medium {
       @include paragraph-desktop;
     }
   }
 
   &__description {
     &__div {
-      @media (min-width: 768px) {
+      @include medium {
         padding-right: 1rem;
       }
       &__text {
         @include paragraph-mobile;
         width: 100%;
 
-        @media (min-width: 768px) {
+        @include medium {
           @include paragraph-desktop;
         }
       }

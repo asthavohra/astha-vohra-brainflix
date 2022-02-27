@@ -1,13 +1,15 @@
 @use "../../partials/variables" as *;
 @use "../../partials/mixins" as *;
 @use "../../partials/typography" as *;
+@use "../../partials/breakpoints" as *;
+
 .media-list {
   display: flex;
   flex-direction: column;
   padding: $padding * 2;
   font-family: "Avenir";
 
-  @media (min-width: 768px) {
+  @include medium {
     width: 45%;
     padding: $padding $padding * 3 $padding * 3;
   }
@@ -68,7 +70,7 @@
     text-overflow: ellipsis;
     margin-block-end: 0;
 
-    @media (min-width: 768px) {
+    @include medium {
       @include list-desktop;
       font-weight: 600;
     }
@@ -77,7 +79,7 @@
   &__channel {
     @include paragraph-mobile;
 
-    @media (min-width: 768px) {
+    @include medium {
       @include list-desktop;
     }
   }

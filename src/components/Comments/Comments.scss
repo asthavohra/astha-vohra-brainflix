@@ -2,6 +2,7 @@
 @use "../../partials/mixins" as *;
 @use "../../partials/colors";
 @use "../../partials/typography" as *;
+@use "../../partials/breakpoints" as *;
 
 /* =============== Comments =============== */
 .comments {
@@ -10,7 +11,7 @@
   align-items: center;
   font-family: "Avenir";
 
-  @media (min-width: 768px) {
+  @include medium {
   }
 
   @media (min-width: 1280px) {
@@ -25,7 +26,7 @@
     align-self: flex-start;
     margin: 1rem 1rem;
 
-    @media (min-width: 768px) {
+    @include medium {
       @include subheader-desktop;
       margin: 0 2rem;
     }
