@@ -14,7 +14,7 @@
   &__personal-info {
     display: flex;
     padding: 0 1rem;
-    @media (min-width: 768px) {
+    @include medium {
       width: 9%;
     }
   }
@@ -49,8 +49,9 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    min-width: 15rem;
 
-    @media (min-width: 768px) {
+    @include medium {
       margin-bottom: 0;
     }
   }
@@ -91,15 +92,17 @@
       @include medium {
         width: auto;
         padding: 0.0625rem 2rem;
+        min-width: 9.375rem;
       }
       @include large {
         width: auto;
         padding: 0.0625rem 2rem;
+        min-width: 9.375rem;
       }
       &__cta {
         @include button-mobile;
         justify-content: flex-start;
-        @media (min-width: 768px) {
+        @include medium {
           width: 160px;
         }
 

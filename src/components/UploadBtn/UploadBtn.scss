@@ -7,16 +7,17 @@
   padding-right: 1rem;
   padding-bottom: 1rem;
   font-family: "Avenir";
+  width: auto;
   @include medium {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-
+    width: 9.375rem;
     padding-bottom: 0;
   }
   @include large {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-
+    width: 9.375rem;
     padding-bottom: 0;
   }
 }
@@ -29,7 +30,7 @@
   font-weight: 400;
   font-family: "Avenir";
 
-  @media (min-width: 768px) {
+  @include medium {
     height: 2.75rem;
     width: 9.375rem;
     //padding: 0 2rem;
