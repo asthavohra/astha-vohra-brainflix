@@ -1,10 +1,6 @@
 @use "../../partials/colors" as *;
 @use "../../partials/breakpoints" as *; /* =============== Avatar =============== */
 .avatar {
-  //min-height: 100%;
-  //width: auto;
-  // display: inline;
-
   &-container {
     display: flex;
     border-radius: 50%;
@@ -13,7 +9,6 @@
     overflow: hidden;
     background: $secondary-mercury;
     display: none;
-    //display: flex;
     @include medium {
       display: flex;
     }
