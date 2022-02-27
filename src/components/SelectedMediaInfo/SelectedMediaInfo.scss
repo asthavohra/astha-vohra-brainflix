@@ -39,6 +39,11 @@
           margin: $padding * 3 0;
           border-bottom: none;
         }
+        @include large {
+          @include h1-header-desktop;
+          margin: $padding * 3 0;
+          border-bottom: none;
+        }
       }
     }
   }
