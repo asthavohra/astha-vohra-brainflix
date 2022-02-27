@@ -2,6 +2,7 @@ import "./SelectedMediaInfo.scss";
 import viewsIcon from "../../assets/icons/views.svg";
 import likesIcon from "../../assets/icons/likes.svg";
 import Comments from "../Comments/Comments";
+import moment from "moment";
 
 // Calculate how long ago was the video posted
 const timeAgo = (timestamp) => {
@@ -63,7 +64,7 @@ function SelectedMediaInfo({ selectedEntry }) {
               By {selectedEntry.channel}
             </h2>
             <p className="selected-media__timestamp">
-              {timeAgo(selectedEntry.timestamp)}
+              {moment(selectedEntry.timestamp).fromNow()}
             </p>
           </div>
           <div className="selected-media__bottom">
