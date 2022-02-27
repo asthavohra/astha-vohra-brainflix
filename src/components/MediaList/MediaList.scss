@@ -62,16 +62,23 @@
 
   &__title {
     @include subheader-mobile;
-    margin-bottom: $padding;
+    padding-bottom: $padding;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+
     text-overflow: ellipsis;
     margin-block-end: 0;
 
     @include medium {
       @include list-desktop;
       font-weight: 600;
+      padding-bottom: 0;
+    }
+    @include large {
+      @include list-desktop;
+      font-weight: 600;
+      padding-bottom: 0;
     }
   }
   &__channel {

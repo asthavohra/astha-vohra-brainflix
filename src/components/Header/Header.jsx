@@ -15,7 +15,6 @@ function Header() {
       </section>
       <section className="header__content">
         <SearchBar />
-
         <UploadBtn />
         <Avatar />
       </section>

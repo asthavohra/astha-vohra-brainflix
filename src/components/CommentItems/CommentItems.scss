@@ -48,8 +48,10 @@
         display: flex;
         justify-content: flex-end;
         padding-right: 1rem;
+        align-items: center;
         @include medium {
           @include list-desktop;
+          align-items: baseline;
         }
       }
     }

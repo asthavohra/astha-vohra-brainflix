@@ -11,12 +11,6 @@
   align-items: center;
   font-family: "Avenir";
 
-  @include medium {
-  }
-
-  @include large {
-  }
-
   &__count {
     @include subheader-mobile;
     align-self: flex-start;
