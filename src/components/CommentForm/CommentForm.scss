@@ -13,9 +13,13 @@
 
   &__personal-info {
     display: flex;
-    padding: 0 1rem;
+
     @include medium {
       width: 9%;
+      padding: 0 1rem;
+    }
+    @include large {
+      padding: 0 1rem;
     }
   }
 
