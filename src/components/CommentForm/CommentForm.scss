@@ -1,6 +1,6 @@
 @use "../../partials/variables" as *;
 @use "../../partials/mixins" as *;
-@use "../../partials/colors";
+@use "../../partials/colors" as *;
 @use "../../partials/breakpoints" as *;
 @use "../../partials/typography" as *;
 
@@ -81,12 +81,12 @@
     }
 
     &::placeholder {
-      color: colors.$primary-black;
+      color: $primary-black;
     }
 
     &:focus {
       outline: none;
-      border: 0.125rem solid colors.$primary-blue;
+      border: 0.125rem solid $primary-blue;
     }
   }
 

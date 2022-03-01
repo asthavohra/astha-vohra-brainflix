@@ -1,6 +1,6 @@
 @use "./typography" as *;
 @use "./variables" as *;
-@use "./colors";
+@use "./colors" as *;
 
 /* ==================== Button ==================== */
 @mixin button-mobile {
@@ -10,8 +10,8 @@
   justify-content: center;
   align-items: center;
   height: 2.5rem;
-  background: colors.$primary-blue;
-  color: colors.$primary-white;
+  background: $primary-blue;
+  color: $primary-white;
   border-style: none;
   border-radius: 0.25rem;
   width: 100%;
@@ -23,7 +23,7 @@
 }
 
 @mixin button-hover {
-  background: colors.$secondary-blue;
+  background: $secondary-blue;
 }
 
 /* ==================== Form ==================== */
@@ -32,9 +32,9 @@
   font-family: "Avenir", "Roboto", sans-serif;
   //padding: $padding * 1.5;
   border-radius: 0.25rem;
-  border: 0.0625rem solid colors.$secondary-mercury;
-  background: colors.$secondary-alabaster;
-  color: colors.$primary-black;
+  border: 0.0625rem solid $secondary-mercury;
+  background: $secondary-alabaster;
+  color: $primary-black;
 }
 
 /* ==================== Mobile Text Styles ==================== */
@@ -66,7 +66,7 @@
   line-height: 1.25rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: colors.$secondary-silver;
+  color: $secondary-silver;
 }
 
 /* ==================== Desktop & Tablet Text Styles ==================== */
@@ -111,4 +111,13 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 400;
+}
+
+@mixin text-link {
+  @include label;
+  text-decoration: none;
+  color: $primary-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

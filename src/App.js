@@ -1,12 +1,17 @@
 import "./App.scss";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
-
+import { Route, Switch } from "react-router-dom";
+import VideoUploadPage from "./pages/VideoUploadPage/VideoUploadPage";
 function App() {
   return (
     <div className="parent">
       <Header />
-      <Main />
+      <Switch>
+        <Route exact path="/" component={Main} />
+        <Route exact path="/videoupload" component={VideoUploadPage} />
+        <Route path="/videos/:videoId" component={Main} />
+      </Switch>
     </div>
   );
 }

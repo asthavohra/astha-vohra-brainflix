@@ -35,6 +35,10 @@
   display: flex;
   align-items: center;
   font-family: "Avenir";
+  &-link {
+    text-decoration: inherit;
+    color: inherit;
+  }
 
   &__left {
     margin-right: $padding * 2;

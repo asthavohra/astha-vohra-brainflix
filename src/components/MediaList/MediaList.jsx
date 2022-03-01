@@ -1,5 +1,5 @@
 import "./MediaList.scss";
-
+import { Link } from "react-router-dom";
 function MediaList({ entries, handleClick }) {
   return (
     <article className="media-list">
@@ -7,21 +7,27 @@ function MediaList({ entries, handleClick }) {
       <section className="media-list__container">
         {entries.map((entry) => {
           return (
-            <section
-              className="media"
+            <Link
+              to={`/videos/${entry.id}`}
               key={entry.id}
-              onClick={() => handleClick(entry.id)}
+              className="media-link"
             >
-              <div className="media__left">
-                <div className="media__img-container">
-                  <img src={entry.image} className="media__img" alt="Cover" />
+              <section
+                className="media"
+                key={entry.id}
+                onClick={() => handleClick(entry.id)}
+              >
+                <div className="media__left">
+                  <div className="media__img-container">
+                    <img src={entry.image} className="media__img" alt="Cover" />
+                  </div>
                 </div>
-              </div>
-              <div className="media__right">
-                <h2 className="media__title">{entry.title}</h2>
-                <p className="media__channel">{entry.channel}</p>
-              </div>
-            </section>
+                <div className="media__right">
+                  <h2 className="media__title">{entry.title}</h2>
+                  <p className="media__channel">{entry.channel}</p>
+                </div>
+              </section>
+            </Link>
           );
         })}
       </section>

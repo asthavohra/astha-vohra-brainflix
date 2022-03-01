@@ -63,4 +63,8 @@
       flex-direction: row;
     }
   }
+  &__upload-link {
+    text-decoration: inherit;
+    color: inherit;
+  }
 }
