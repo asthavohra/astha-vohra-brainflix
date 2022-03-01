@@ -25,7 +25,8 @@ function VideoUploadPage(props) {
     });
     toast
       .promise(resolveAfter3Sec, {
-        pending: "Video Upload in progess ",
+        pending:
+          "Video Upload in progess, you will be redirected to home page soon ",
         success: "Promise resolved 👌",
         error: "Cannot Upload the Video,Please try again later 🤯",
       })
