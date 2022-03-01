@@ -23,6 +23,7 @@
 }
 .upload-btn {
   @include button-mobile;
+  cursor: pointer;
   width: 100%;
   justify-content: flex-start;
   align-items: center;

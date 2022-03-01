@@ -14,7 +14,7 @@
 
   @media (min-width: 1280px) {
     width: 1080px;
-    padding: $padding * 6 0;
+    padding: 6rem;
   }
 
   &__title {
@@ -114,7 +114,8 @@
 
   &__input-txt {
     @include form-input;
-    margin-bottom: $padding * 3;
+    height: 1rem;
+    padding: 1rem;
 
     &::placeholder {
       color: $primary-black;
@@ -128,10 +129,11 @@
 
   &__textarea {
     @include form-input;
-    height: 143px;
+    height: 5rem;
+    padding: 1rem;
 
     @media (min-width: 1280px) {
-      height: 94px;
+      height: 4.5rem;
     }
 
     &::placeholder {
@@ -147,6 +149,7 @@
   &__publish-btn {
     @include button-mobile;
     margin-bottom: $padding * 3;
+    cursor: pointer;
 
     @media (min-width: 768px) {
       @include button-desktop;
@@ -161,7 +164,9 @@
 
   &__cancel-link {
     @include text-link;
-
+    background-color: inherit;
+    border: none;
+    font-family: "Avenir";
     @media (min-width: 768px) {
       margin-right: $padding * 6;
     }

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import thumbnail from "../../assets/images/Upload-video-preview.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import publishButton from "../../assets/icons/publish.svg";
 
 import { Component } from "react";
 
@@ -83,11 +84,16 @@ function VideoUploadPage(props) {
             className="upload-form__publish-btn"
             type="submit"
           >
+            <img
+              className="form__btn__div__cta__icon"
+              src={publishButton}
+              alt="Publish Icon"
+            />
             Publish
           </button>
-          <button className="btns__cancel" onClick={(e) => e.preventDefault()}>
+          <Link to="/" className="upload-form__cancel-link">
             CANCEL
-          </button>
+          </Link>
         </div>
       </form>
     </article>
