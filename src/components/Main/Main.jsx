@@ -5,6 +5,7 @@ import videoDetails from "../../data/video-details.json";
 import Hero from "../Hero/Hero";
 import SelectedMediaInfo from "../SelectedMediaInfo/SelectedMediaInfo";
 import MediaList from "../MediaList/MediaList";
+import { ToastContainer } from "react-toastify";
 
 class Main extends React.Component {
   state = {
@@ -33,6 +34,7 @@ class Main extends React.Component {
             handleClick={this.handleClick}
           />
         </section>
+        <ToastContainer />
       </main>
     );
   }
