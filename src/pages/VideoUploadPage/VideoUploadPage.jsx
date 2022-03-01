@@ -11,8 +11,6 @@ function VideoUploadPage(props) {
 
   function pushBack(event) {
     event.preventDefault();
-
-    console.log("fn called");
     const resolveAfter3Sec = new Promise((resolve, reject) => {
       //you will do api call to upload video
       //on success you will resolve
@@ -22,17 +20,18 @@ function VideoUploadPage(props) {
           resolve("I have no error, I will be resolve");
         } else {
           reject("I have some error, I will be rejected!!!!!");
-          props.history.push("/");
         }
       }, 3000);
     });
-    toast.promise(resolveAfter3Sec, {
-      pending: "Video Upload in progess ",
-      success: "Promise resolved 👌",
-      error: "Cannot Upload the Video,Please try again later 🤯",
-    });
-
-    //props.history.push("/");
+    toast
+      .promise(resolveAfter3Sec, {
+        pending: "Video Upload in progess ",
+        success: "Promise resolved 👌",
+        error: "Cannot Upload the Video,Please try again later 🤯",
+      })
+      .finally(() => {
+        props.history.push("/");
+      });
   }
 
   return (
