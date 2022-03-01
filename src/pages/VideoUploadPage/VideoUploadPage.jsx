@@ -4,70 +4,70 @@ import thumbnail from "../../assets/images/Upload-video-preview.jpg";
 
 import { Component } from "react";
 
-class VideoUploadPage extends Component {
+function VideoUploadPage(props) {
   // Prevents the form from reloading the page when submitted
-  handleSubmit = (event) => {
+  function pushBack(event) {
     event.preventDefault();
-  };
-
-  render() {
-    return (
-      <article className="upload-video">
-        <h1 className="upload-video__title">Upload Video</h1>
-        <form className="upload-form" onSubmit={this.handleSubmit}>
-          <div className="upload-form__container">
-            <div className="upload-form__thumbnail">
-              <label htmlFor="videoThumbnail" className="upload-form__label">
-                Video thumbnail
-              </label>
-              {/* img and div to be replaced by a file input tag */}
-              <div className="upload-form__input-img-container">
-                <img
-                  src={thumbnail}
-                  className="upload-form__input-img"
-                  alt="Video Upload Thumbnail"
-                />
-              </div>
-            </div>
-            <div className="upload-form__info">
-              <label htmlFor="videoTitle" className="upload-form__label">
-                Title your video
-              </label>
-              <input
-                type="text"
-                id="video-title"
-                name="videoTitle"
-                className="upload-form__input-txt"
-                placeholder="Add a title to your video"
-              />
-
-              <label htmlFor="videoDescription" className="upload-form__label">
-                Add a video description
-              </label>
-              <textarea
-                id="video-description"
-                name="videoDescription"
-                className="upload-form__textarea"
-                placeholder="Add a description of your video"
-              ></textarea>
-            </div>
-          </div>
-          <div className="upload-form__links">
-            <button
-              id="upload-btn"
-              className="upload-form__publish-btn"
-              type="submit"
-            >
-              Publish
-            </button>
-            <Link to="/" className="upload-form__cancel-link">
-              Cancel
-            </Link>
-          </div>
-        </form>
-      </article>
-    );
+    alert("Upload complete!");
+    props.history.push("/");
   }
+
+  return (
+    <article className="upload-video">
+      <h1 className="upload-video__title">Upload Video</h1>
+      <form className="upload-form" onSubmit={pushBack}>
+        <div className="upload-form__container">
+          <div className="upload-form__thumbnail">
+            <label htmlFor="videoThumbnail" className="upload-form__label">
+              Video thumbnail
+            </label>
+            {/* img and div to be replaced by a file input tag */}
+            <div className="upload-form__input-img-container">
+              <img
+                src={thumbnail}
+                className="upload-form__input-img"
+                alt="Video Upload Thumbnail"
+              />
+            </div>
+          </div>
+          <div className="upload-form__info">
+            <label htmlFor="videoTitle" className="upload-form__label">
+              Title your video
+            </label>
+            <input
+              type="text"
+              id="video-title"
+              name="videoTitle"
+              className="upload-form__input-txt"
+              placeholder="Add a title to your video"
+            />
+
+            <label htmlFor="videoDescription" className="upload-form__label">
+              Add a video description
+            </label>
+            <textarea
+              id="video-description"
+              name="videoDescription"
+              className="upload-form__textarea"
+              placeholder="Add a description of your video"
+            ></textarea>
+          </div>
+        </div>
+        <div className="upload-form__links">
+          <button
+            id="upload-btn"
+            className="upload-form__publish-btn"
+            type="submit"
+          >
+            Publish
+          </button>
+          <button className="btns__cancel" onClick={(e) => e.preventDefault()}>
+            CANCEL
+          </button>
+        </div>
+      </form>
+    </article>
+  );
 }
 
 export default VideoUploadPage;
