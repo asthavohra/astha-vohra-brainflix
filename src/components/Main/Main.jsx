@@ -11,35 +11,33 @@ class Main extends React.Component {
   state = {
     videos: videos,
     videoDetails: videoDetails,
-    selectedEntry: videoDetails[0],
-  };
-
-  handleClick = (id) => {
-    const individualEntry = this.state.videoDetails.find(
-      (entry) => entry.id === id
-    );
-    this.setState({ selectedEntry: individualEntry });
+    selectedEntry: null,
   };
 
   render() {
     {
-      console.log(this.props.match.params.videoId);
+      let videoId = this.props.match.params.videoId
+        ? this.props.match.params.videoId
+        : videoDetails[0].id;
+
+      let selectedEntry = this.state.videoDetails.find(
+        (entry) => entry.id === videoId
+      );
+      return (
+        <main className="main">
+          <Hero selectedEntry={selectedEntry} />
+          <section className="main__container">
+            <SelectedMediaInfo selectedEntry={selectedEntry} />
+            <MediaList
+              entries={this.state.videos.filter(
+                (video) => video.id !== selectedEntry.id
+              )}
+            />
+          </section>
+          <ToastContainer />
+        </main>
+      );
     }
-    return (
-      <main className="main">
-        <Hero selectedEntry={this.state.selectedEntry} />
-        <section className="main__container">
-          <SelectedMediaInfo selectedEntry={this.state.selectedEntry} />
-          <MediaList
-            entries={this.state.videos.filter(
-              (video) => video.id !== this.state.selectedEntry.id
-            )}
-            handleClick={this.handleClick}
-          />
-        </section>
-        <ToastContainer />
-      </main>
-    );
   }
 }
 
