@@ -2,9 +2,9 @@ import "./Main.scss";
 import React from "react";
 //import videos from "../../data/videos.json";
 //import videoDetails from "../../data/video-details.json";
-import Hero from "../Hero/Hero";
-import SelectedMediaInfo from "../SelectedMediaInfo/SelectedMediaInfo";
-import MediaList from "../MediaList/MediaList";
+import Hero from "../../components/Hero/Hero";
+import SelectedMediaInfo from "../../components/SelectedMediaInfo/SelectedMediaInfo";
+import MediaList from "../../components/MediaList/MediaList";
 import { ToastContainer } from "react-toastify";
 import axios from "axios";
 import { API_URL } from "../../utils/api";
@@ -65,11 +65,7 @@ class Main extends React.Component {
     const { videos, selectedVideo } = this.state;
 
     if (this.state.selectedVideo === null) {
-      return (
-        <h2>
-          <span>Page is Loading!!!Please Wait</span>
-        </h2>
-      );
+      return <main className="load-screen">Loading...</main>;
     }
 
     // let videoId = this.props.match.params.videoId
@@ -79,19 +75,21 @@ class Main extends React.Component {
     //  (entry) => entry.id === videoId
     // );
     return (
-      <main className="main">
-        <Hero selectedEntry={selectedVideo} />
-        <section className="main__container">
-          <SelectedMediaInfo
-            selectedEntry={selectedVideo}
-            getVideoDetails={this.getVideoDetails}
-          />
-          <MediaList
-            entries={videos.filter((video) => video.id !== selectedVideo.id)}
-          />
-        </section>
-        <ToastContainer />
-      </main>
+      <div className="App">
+        <main className="main">
+          <Hero selectedEntry={selectedVideo} />
+          <section className="main__container">
+            <SelectedMediaInfo
+              selectedEntry={selectedVideo}
+              getVideoDetails={this.getVideoDetails}
+            />
+            <MediaList
+              entries={videos.filter((video) => video.id !== selectedVideo.id)}
+            />
+          </section>
+          <ToastContainer />
+        </main>
+      </div>
     );
   }
 }

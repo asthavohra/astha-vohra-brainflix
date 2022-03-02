@@ -1,6 +1,6 @@
 import "./App.scss";
 import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
+import Main from "./pages/Main/Main";
 import { Route, Switch } from "react-router-dom";
 import VideoUploadPage from "./pages/VideoUploadPage/VideoUploadPage";
 function App() {
