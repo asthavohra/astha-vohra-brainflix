@@ -2,6 +2,8 @@ import "./CommentForm.scss";
 import Avatar from "../Avatar/Avatar";
 import AvatarMobile from "../Avatar/AvatarMobile";
 import commentButton from "../../assets/icons/add_comment.svg";
+import axios from "axios";
+import { API_URL, API_KEY } from "../../utils/api";
 
 function CommentForm({ handleSubmit }) {
   return (

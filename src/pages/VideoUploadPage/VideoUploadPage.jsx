@@ -5,8 +5,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import publishButton from "../../assets/icons/publish.svg";
 
-import { Component } from "react";
-
 function VideoUploadPage(props) {
   // Prevents the form from reloading the page when submitted
 
@@ -17,7 +15,7 @@ function VideoUploadPage(props) {
       //on success you will resolve
       //on error you will reject
       setTimeout(() => {
-        if (2 % 2 == 1) {
+        if (2 % 2 === 1) {
           resolve("I have no error, I will be resolve");
         } else {
           reject("I have some error, I will be rejected!!!!!");
