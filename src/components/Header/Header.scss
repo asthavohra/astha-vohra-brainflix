@@ -5,6 +5,7 @@
   flex-direction: column;
   display: flex;
   font-family: "Avenir";
+  border-bottom: 0.0625rem solid #e1e1e1;
 
   @include medium {
     flex-direction: row;

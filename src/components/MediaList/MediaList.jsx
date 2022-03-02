@@ -1,6 +1,6 @@
 import "./MediaList.scss";
 import { Link } from "react-router-dom";
-function MediaList({ entries, handleClick }) {
+function MediaList({ entries }) {
   return (
     <article className="media-list">
       <h5 className="media-list__label">Next Video</h5>
@@ -12,11 +12,7 @@ function MediaList({ entries, handleClick }) {
               key={entry.id}
               className="media-link"
             >
-              <section
-                className="media"
-                key={entry.id}
-                onClick={() => handleClick(entry.id)}
-              >
+              <section className="media">
                 <div className="media__left">
                   <div className="media__img-container">
                     <img src={entry.image} className="media__img" alt="Cover" />

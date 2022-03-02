@@ -20,6 +20,7 @@
   &__title {
     @include header-mobile;
     padding-bottom: $padding * 4;
+    border-bottom: 0.0625rem solid #e1e1e1;
 
     @media (min-width: 768px) {
       @include h1-header-desktop;

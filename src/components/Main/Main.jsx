@@ -22,6 +22,9 @@ class Main extends React.Component {
   };
 
   render() {
+    {
+      console.log(this.props.match.params.videoId);
+    }
     return (
       <main className="main">
         <Hero selectedEntry={this.state.selectedEntry} />
