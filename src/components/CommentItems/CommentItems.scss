@@ -29,6 +29,10 @@
     width: 37.5rem;
     @include medium {
     }
+    &-buttons {
+      display: flex;
+      justify-content: flex-end;
+    }
 
     &__main {
       display: flex;
