@@ -49,8 +49,8 @@ class CommentItems extends Component {
                       </p>
                     </div>
                   </div>
-                  <div>
-                    <p className="comment__text">{comment.comment}</p>
+                  <div className="comment__text">
+                    <p>{comment.comment}</p>
                   </div>
                   <div className="comment__right-buttons">
                     <img
