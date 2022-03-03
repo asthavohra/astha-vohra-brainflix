@@ -7,8 +7,7 @@ import SelectedMediaInfo from "../../components/SelectedMediaInfo/SelectedMediaI
 import MediaList from "../../components/MediaList/MediaList";
 import { ToastContainer } from "react-toastify";
 import axios from "axios";
-import { API_URL } from "../../utils/api";
-import { API_KEY } from "../../utils/api";
+import { API_URL, API_KEY } from "../../utils/api";
 
 class Main extends React.Component {
   state = {

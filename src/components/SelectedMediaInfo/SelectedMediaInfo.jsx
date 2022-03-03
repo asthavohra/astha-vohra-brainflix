@@ -4,7 +4,7 @@ import likesIcon from "../../assets/icons/likes.svg";
 import Comments from "../Comments/Comments";
 import moment from "moment";
 
-function SelectedMediaInfo({ selectedEntry }) {
+function SelectedMediaInfo({ selectedEntry, getVideoDetails }) {
   return (
     <article className="selected-media">
       <section className="selected-media__info">
@@ -49,7 +49,10 @@ function SelectedMediaInfo({ selectedEntry }) {
         </div>
       </section>
       <section className="selected-media__comments">
-        <Comments comments={selectedEntry.comments} />
+        <Comments
+          selectedEntry={selectedEntry}
+          getVideoDetails={getVideoDetails}
+        />
       </section>
     </article>
   );

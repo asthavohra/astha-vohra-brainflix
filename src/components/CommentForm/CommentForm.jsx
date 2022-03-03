@@ -4,42 +4,87 @@ import AvatarMobile from "../Avatar/AvatarMobile";
 import commentButton from "../../assets/icons/add_comment.svg";
 import axios from "axios";
 import { API_URL, API_KEY } from "../../utils/api";
+import { Component } from "react";
 
-function CommentForm({ handleSubmit }) {
-  return (
-    <form id="comment-form" className="form" onSubmit={handleSubmit}>
-      <div className="form__personal-info">
-        <div className="form__avatar">
-          <Avatar />
-          <AvatarMobile />
+class CommentForm extends Component {
+  state = {
+    name: "Astha Vohra",
+    comment: "",
+  };
+
+  initialState = this.state;
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  isFormValid = () => {
+    if (!this.state.name || !this.state.comment) {
+      return false;
+    }
+    return true;
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    if (this.isFormValid()) {
+      axios
+        .post(
+          `${API_URL}/videos/${this.props.selectedEntry.id}/comments?api_key=${API_KEY}`,
+          {
+            name: this.state.name,
+            comment: this.state.comment,
+          }
+        )
+        .then((response) => {
+          this.props.getVideoDetails(this.props.selectedEntry.id);
+          this.setState(this.initialState);
+        })
+        .catch((err) => {
+          alert("Oops! Something happened: ", err);
+        });
+    } else {
+      alert("Please write a comment");
+    }
+  };
+  render() {
+    return (
+      <form id="comment-form" className="form" onSubmit={this.handleSubmit}>
+        <div className="form__personal-info">
+          <div className="form__avatar">
+            <Avatar />
+            <AvatarMobile />
+          </div>
         </div>
-      </div>
-      <div className="form__container">
-        <div className="form__comment">
-          <label htmlFor="comment" className="form__label">
-            Join the conversation
-          </label>
-          <input
-            type="text"
-            id="comment"
-            name="comment"
-            className="form__textarea"
-            placeholder="Add a new comment"
-          ></input>
+        <div className="form__container">
+          <div className="form__comment">
+            <label htmlFor="comment" className="form__label">
+              Join the conversation
+            </label>
+            <input
+              onChange={this.handleChange}
+              value={this.state.comment}
+              id="comment"
+              name="comment"
+              className="form__textarea"
+              placeholder="Add a new comment"
+            ></input>
+          </div>
+          <div className="form__btn__div">
+            <button className="form__btn__div__cta" type="submit">
+              <img
+                className="form__btn__div__cta__icon"
+                src={commentButton}
+                alt="Upload Icon"
+              />
+              <div className="form__btn__div__cta__icon__text">COMMENT</div>
+            </button>
+          </div>
         </div>
-        <div className="form__btn__div">
-          <button className="form__btn__div__cta" type="submit">
-            <img
-              className="form__btn__div__cta__icon"
-              src={commentButton}
-              alt="Upload Icon"
-            />
-            <div className="form__btn__div__cta__icon__text">COMMENT</div>
-          </button>
-        </div>
-      </div>
-    </form>
-  );
+      </form>
+    );
+  }
 }
-
 export default CommentForm;

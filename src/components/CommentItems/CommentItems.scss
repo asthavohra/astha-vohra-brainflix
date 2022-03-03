@@ -70,5 +70,8 @@
     @include medium {
       @include paragraph-desktop;
     }
+    @include large {
+      width: 37.5rem;
+    }
   }
 }
