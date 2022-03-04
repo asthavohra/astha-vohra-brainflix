@@ -102,7 +102,8 @@
 
   &__label {
     @include label;
-    margin-bottom: $padding/2;
+    padding: 0.5rem 0;
+    font-weight: 400;
   }
 
   &__input-img {
@@ -162,6 +163,7 @@
     @include button-mobile;
     margin-bottom: $padding * 3;
     cursor: pointer;
+    font-weight: 400;
 
     @media (min-width: 768px) {
       @include button-desktop;
