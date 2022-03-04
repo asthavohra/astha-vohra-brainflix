@@ -14,7 +14,6 @@ class Main extends React.Component {
     selectedVideoId: null,
   };
   getVideos = () => {
-    console.log("Calling get video*****");
     axios
       .get(`${API_URL}/videos?api_key=${API_KEY}`)
       .then((response) => {
@@ -24,11 +23,10 @@ class Main extends React.Component {
         });
       })
       .catch((error) => {
-        console.log("The error is ", error);
+        console.error("The error is ", error);
       });
   };
   getVideoDetails = (videoId) => {
-    console.log("Calling video details*****");
     axios
       .get(`${API_URL}/videos/${videoId}?api_key=${API_KEY}`)
       .then((response) => {
@@ -38,7 +36,7 @@ class Main extends React.Component {
         });
       })
       .catch((error) => {
-        console.log("Cannot get the details because ", error);
+        console.error("Cannot get the details because ", error);
       });
   };
   componentDidMount() {

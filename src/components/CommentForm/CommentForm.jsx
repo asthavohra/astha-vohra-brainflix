@@ -10,9 +10,14 @@ class CommentForm extends Component {
   state = {
     name: "Astha Vohra",
     comment: "",
+    hasError: false,
   };
 
   initialState = this.state;
+  checkEmptyComment = (event) => {
+    if (event.target.value && this.state.hasError)
+      this.setState({ hasError: false });
+  };
 
   handleChange = (event) => {
     this.setState({
@@ -42,11 +47,11 @@ class CommentForm extends Component {
           this.props.getVideoDetails(this.props.selectedEntry.id);
           this.setState(this.initialState);
         })
-        .catch((err) => {
-          alert("Oops! Something happened: ", err);
+        .catch((error) => {
+          alert("Oops! Something happened: ", error);
         });
     } else {
-      alert("Please write a comment");
+      this.setState({ hasError: true });
     }
   };
   render() {
@@ -68,8 +73,11 @@ class CommentForm extends Component {
               value={this.state.comment}
               id="comment"
               name="comment"
-              className="form__textarea"
+              className={`form__textarea ${
+                this.state.hasError ? "form__textarea-error" : ""
+              } `}
               placeholder="Add a new comment"
+              onKeyPress={this.checkEmptyComment}
             ></input>
           </div>
           <div className="form__btn__div">

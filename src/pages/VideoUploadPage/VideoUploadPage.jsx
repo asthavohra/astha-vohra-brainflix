@@ -85,7 +85,7 @@ function VideoUploadPage(props) {
               src={publishButton}
               alt="Publish Icon"
             />
-            Publish
+            <div className="form__btn__div__cta__icon__text">Publish</div>
           </button>
           {/* Linked the Cancel Button to Home Page*/}
           <Link to="/" className="upload-form__cancel-link">
