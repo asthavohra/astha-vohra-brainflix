@@ -167,6 +167,8 @@
       @include button-desktop;
       order: 2;
       margin-bottom: 0;
+      justify-content: flex-start;
+      padding: 0;
     }
 
     &:hover {
@@ -183,4 +185,7 @@
       margin-right: $padding * 6;
     }
   }
+}
+.form__btn__div__cta__icon__text {
+  padding: 0.5rem;
 }
