@@ -54,7 +54,7 @@
     justify-content: space-between;
     border-bottom: $divider;
     padding-top: 1rem;
-    margin-block-start: 0px;
+    margin-block-start: 0;
     margin-block-end: 0;
 
     @include medium {
