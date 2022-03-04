@@ -26,10 +26,7 @@ class CommentForm extends Component {
   };
 
   isFormValid = () => {
-    if (!this.state.name || !this.state.comment) {
-      return false;
-    }
-    return true;
+    return this.state.comment;
   };
 
   handleSubmit = (event) => {
@@ -44,16 +41,34 @@ class CommentForm extends Component {
           }
         )
         .then((response) => {
-          this.props.getVideoDetails(this.props.selectedEntry.id);
-          this.setState(this.initialState);
+          console.log(response);
+          if (this.validateResponse(response)) {
+            this.props.getVideoDetails(this.props.selectedEntry.id);
+            this.setState(this.initialState);
+          } else {
+            console.error("Unable to get a valid response");
+          }
         })
         .catch((error) => {
-          alert("Oops! Something happened: ", error);
+          console.error("Cannot post the comment due to ", error);
         });
     } else {
       this.setState({ hasError: true });
     }
   };
+
+  validateResponse = (response) => {
+    if (
+      response &&
+      response.status === 200 &&
+      response.data &&
+      response.data.timestamp
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   render() {
     return (
       <form id="comment-form" className="form" onSubmit={this.handleSubmit}>
