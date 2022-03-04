@@ -2,6 +2,7 @@
 @use "../../partials/mixins" as *;
 @use "../../partials/colors" as *;
 @use "../../partials/typography" as *;
+@use "../../partials/breakpoints" as *;
 
 .upload-video {
   //width: 100%;
@@ -16,17 +17,25 @@
 
   @media (min-width: 1280px) {
     width: 1080px;
-    padding: 6rem;
+    padding: 2rem 8rem;
   }
 
   &__title {
     @include header-mobile;
     padding-bottom: $padding * 4;
+    margin-block-start: 0;
+    margin-block-end: 0;
 
     @media (min-width: 768px) {
       @include h1-header-desktop;
+
       border-bottom: $divider;
       border-bottom: 0.0625rem solid #e1e1e1;
+    }
+    @include large {
+      padding: 1rem 0rem;
+      margin-block-start: 0;
+      margin-block-end: 0;
     }
   }
 }

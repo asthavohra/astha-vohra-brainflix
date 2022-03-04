@@ -12,12 +12,12 @@ class CommentItems extends Component {
       .delete(
         `${API_URL}/videos/${this.props.selectedEntry.id}/comments/${commentId}?api_key=${API_KEY}`
       )
-      .then((res) => {
-        console.log(res);
+      .then((response) => {
+        console.log(response);
         this.props.getVideoDetails(this.props.selectedEntry.id);
       })
-      .catch((err) => {
-        alert("Oops! Something happened: ", err);
+      .catch((error) => {
+        alert("Cannot delete the comment due to  ", error);
       });
   };
   render() {

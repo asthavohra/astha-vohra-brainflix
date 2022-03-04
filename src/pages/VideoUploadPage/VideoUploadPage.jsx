@@ -11,26 +11,24 @@ function VideoUploadPage(props) {
   function pushBack(event) {
     event.preventDefault();
     const resolveAfter3Sec = new Promise((resolve, reject) => {
-      //you will do api call to upload video
-      //on success you will resolve
-      //on error you will reject
       setTimeout(() => {
-        if (2 % 2 === 1) {
-          resolve("I have no error, I will be resolve");
-        } else {
-          reject("I have some error, I will be rejected!!!!!");
-        }
+        reject("I have no error, I will be resolve");
       }, 3000);
     });
+    //Used toastify to show pending and error toast after clicking on Publish
     toast
       .promise(resolveAfter3Sec, {
-        pending:
-          "Video Upload in progess, you will be redirected to home page soon ",
-        success: "Promise resolved 👌",
-        error: "Cannot Upload the Video,Please try again later 🤯",
+        pending: "Video upload in progress",
+        success: "Promise resolved ",
+        error:
+          "Cannot Upload the Video at moment!You will be redirected to home page soon ",
+        autoClose: 5000,
       })
       .finally(() => {
-        props.history.push("/");
+        setTimeout(() => {
+          //Takes back to home page
+          props.history.push("/");
+        }, 5000);
       });
   }
 
@@ -89,6 +87,7 @@ function VideoUploadPage(props) {
             />
             Publish
           </button>
+          {/* Linked the Cancel Button to Home Page*/}
           <Link to="/" className="upload-form__cancel-link">
             CANCEL
           </Link>

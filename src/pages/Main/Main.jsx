@@ -1,7 +1,5 @@
 import "./Main.scss";
 import React from "react";
-//import videos from "../../data/videos.json";
-//import videoDetails from "../../data/video-details.json";
 import Hero from "../../components/Hero/Hero";
 import SelectedMediaInfo from "../../components/SelectedMediaInfo/SelectedMediaInfo";
 import MediaList from "../../components/MediaList/MediaList";
@@ -16,6 +14,7 @@ class Main extends React.Component {
     selectedVideoId: null,
   };
   getVideos = () => {
+    console.log("Calling get video*****");
     axios
       .get(`${API_URL}/videos?api_key=${API_KEY}`)
       .then((response) => {
@@ -29,6 +28,7 @@ class Main extends React.Component {
       });
   };
   getVideoDetails = (videoId) => {
+    console.log("Calling video details*****");
     axios
       .get(`${API_URL}/videos/${videoId}?api_key=${API_KEY}`)
       .then((response) => {
@@ -43,16 +43,8 @@ class Main extends React.Component {
   };
   componentDidMount() {
     this.getVideos();
-    //const { videoId } = this.props.match.params;
   }
-  //if (videoId) {
-  // this.getVideoDetails(videoId);
-  //  } else {
-  //   this.getVideoDetails(this.state.videos[0]);
-  // }
-  //  console.log(videoId);
-  //  console.log(this.state);
-  // }
+
   componentDidUpdate(_prevProps, prevState) {
     const videoId = this.props.match.params.videoId || this.state.videos[0].id;
     if (prevState.selectedVideoId !== videoId) {
@@ -67,12 +59,6 @@ class Main extends React.Component {
       return <main className="load-screen">Loading...</main>;
     }
 
-    // let videoId = this.props.match.params.videoId
-    //  ? this.props.match.params.videoId
-    //  : videoDetails[0].id;
-    //let selectedEntry = this.state.videoDetails.find(
-    //  (entry) => entry.id === videoId
-    // );
     return (
       <div className="App">
         <main className="main">
