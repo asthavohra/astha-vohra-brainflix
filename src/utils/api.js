@@ -53,4 +53,28 @@ const validateDeleteCommentResponse = (response) => {
     return true;
   } else return false;
 };
-export { postComment, deleteComment };
+const getVideos = () => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`${API_URL}/videos?api_key=${API_KEY}`)
+      .then((response) => {
+        if (validateVideoResponse(response)) {
+          resolve(response);
+        }
+      })
+      .catch((error) => {
+        reject("The error is ", error);
+      });
+  });
+};
+const validateVideoResponse = (response) => {
+  if (
+    response &&
+    response.data &&
+    response.status === 200 &&
+    response.data.length > 0
+  ) {
+    return true;
+  } else return false;
+};
+export { postComment, deleteComment, getVideos };

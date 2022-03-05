@@ -4,29 +4,16 @@ import Hero from "../../components/Hero/Hero";
 import SelectedMediaInfo from "../../components/SelectedMediaInfo/SelectedMediaInfo";
 import MediaList from "../../components/MediaList/MediaList";
 import { ToastContainer } from "react-toastify";
-import axios from "axios";
-import { API_URL, API_KEY } from "../../utils/api";
+import { getVideos, API_KEY, API_URL } from "../../utils/api";
 import spinner from "../../assets/images/spinner.gif";
-
+import axios from "axios";
 class Main extends React.Component {
   state = {
     videos: [],
     selectedVideo: null,
     selectedVideoId: null,
   };
-  getVideos = () => {
-    axios
-      .get(`${API_URL}/videos?api_key=${API_KEY}`)
-      .then((response) => {
-        this.setState({
-          videos: response.data,
-          selectedVideoId: response.data[0].id,
-        });
-      })
-      .catch((error) => {
-        console.error("The error is ", error);
-      });
-  };
+
   getVideoDetails = (videoId) => {
     axios
       .get(`${API_URL}/videos/${videoId}?api_key=${API_KEY}`)
@@ -41,7 +28,16 @@ class Main extends React.Component {
       });
   };
   componentDidMount() {
-    this.getVideos();
+    getVideos()
+      .then((response) => {
+        this.setState({
+          videos: response.data,
+          selectedVideoId: response.data[0].id,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   componentDidUpdate(_prevProps, prevState) {
@@ -59,7 +55,10 @@ class Main extends React.Component {
         <main className="load-screen">
           <div className="load-screen__image">
             {/*added spinner which will come up before data is fetched from API*/}
-            <img src={spinner}></img>
+            <img
+              src={spinner}
+              alt="loading spinner gif to be displayed till data is fetched"
+            ></img>
           </div>
         </main>
       );
