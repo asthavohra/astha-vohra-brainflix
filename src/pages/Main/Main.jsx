@@ -6,6 +6,7 @@ import MediaList from "../../components/MediaList/MediaList";
 import { ToastContainer } from "react-toastify";
 import axios from "axios";
 import { API_URL, API_KEY } from "../../utils/api";
+import spinner from "../../assets/images/spinner.gif";
 
 class Main extends React.Component {
   state = {
@@ -54,7 +55,14 @@ class Main extends React.Component {
     const { videos, selectedVideo } = this.state;
 
     if (this.state.selectedVideo === null) {
-      return <main className="load-screen">Loading...</main>;
+      return (
+        <main className="load-screen">
+          <div className="load-screen__image">
+            {/*added spinner which will come up before data is fetched from API*/}
+            <img src={spinner}></img>
+          </div>
+        </main>
+      );
     }
 
     return (

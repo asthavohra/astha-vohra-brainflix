@@ -13,7 +13,6 @@ class CommentItems extends Component {
         `${API_URL}/videos/${this.props.selectedEntry.id}/comments/${commentId}?api_key=${API_KEY}`
       )
       .then((response) => {
-        console.log(response);
         this.props.getVideoDetails(this.props.selectedEntry.id);
       })
       .catch((error) => {

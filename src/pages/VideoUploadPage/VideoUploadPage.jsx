@@ -6,9 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import publishButton from "../../assets/icons/publish.svg";
 
 function VideoUploadPage(props) {
-  // Prevents the form from reloading the page when submitted
-
   function pushBack(event) {
+    // Prevents the form from reloading the page when submitted
     event.preventDefault();
     const resolveAfter3Sec = new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -42,7 +41,7 @@ function VideoUploadPage(props) {
             <label htmlFor="videoThumbnail" className="upload-form__label">
               Video thumbnail
             </label>
-            {/* img and div to be replaced by a file input tag */}
+
             <div className="upload-form__input-img-container">
               <img
                 src={thumbnail}

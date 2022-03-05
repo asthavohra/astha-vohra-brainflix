@@ -3,7 +3,7 @@ import Avatar from "../Avatar/Avatar";
 import AvatarMobile from "../Avatar/AvatarMobile";
 import commentButton from "../../assets/icons/add_comment.svg";
 import axios from "axios";
-import { API_URL, API_KEY } from "../../utils/api";
+import postComment from "../../utils/api";
 import { Component } from "react";
 
 class CommentForm extends Component {
@@ -14,64 +14,45 @@ class CommentForm extends Component {
   };
 
   initialState = this.state;
+  //this function removes the error class on the comment text field once the user starts typing
   checkEmptyComment = (event) => {
     if (event.target.value && this.state.hasError)
       this.setState({ hasError: false });
   };
 
-  handleChange = (event) => {
+  handleChangeForComment = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
   };
-
+  //this function checks if the comment text filed is empty or not
   isFormValid = () => {
     return this.state.comment;
   };
 
-  handleSubmit = (event) => {
+  addComment = (event) => {
     event.preventDefault();
     if (this.isFormValid()) {
-      axios
-        .post(
-          `${API_URL}/videos/${this.props.selectedEntry.id}/comments?api_key=${API_KEY}`,
-          {
-            name: this.state.name,
-            comment: this.state.comment,
-          }
-        )
+      postComment(this.props.selectedEntry.id, {
+        name: this.state.name,
+        comment: this.state.comment,
+      })
         .then((response) => {
-          console.log(response);
-          if (this.validateResponse(response)) {
-            this.props.getVideoDetails(this.props.selectedEntry.id);
-            this.setState(this.initialState);
-          } else {
-            console.error("Unable to get a valid response");
-          }
+          this.props.getVideoDetails(this.props.selectedEntry.id);
+          //clears the value in comment field after posting
+          this.setState(this.initialState);
         })
         .catch((error) => {
-          console.error("Cannot post the comment due to ", error);
+          console.error(error);
         });
     } else {
       this.setState({ hasError: true });
     }
   };
 
-  validateResponse = (response) => {
-    if (
-      response &&
-      response.status === 200 &&
-      response.data &&
-      response.data.timestamp
-    ) {
-      return true;
-    }
-    return false;
-  };
-
   render() {
     return (
-      <form id="comment-form" className="form" onSubmit={this.handleSubmit}>
+      <form id="comment-form" className="form" onSubmit={this.addComment}>
         <div className="form__personal-info">
           <div className="form__avatar">
             <Avatar />
@@ -84,7 +65,7 @@ class CommentForm extends Component {
               Join the conversation
             </label>
             <input
-              onChange={this.handleChange}
+              onChange={this.handleChangeForComment}
               value={this.state.comment}
               id="comment"
               name="comment"
