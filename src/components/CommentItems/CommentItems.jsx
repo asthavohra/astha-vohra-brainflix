@@ -1,22 +1,17 @@
 import "./CommentItems.scss";
 import moment from "moment";
 import deleteIcon from "../../assets/icons/icon-delete.svg";
-import axios from "axios";
-import { API_URL, API_KEY } from "../../utils/api";
+import { deleteComment } from "../../utils/api";
 import { Component } from "react";
-import Avatar from "../Avatar/AvatarMobile";
 
 class CommentItems extends Component {
   handleClick = (commentId) => {
-    axios
-      .delete(
-        `${API_URL}/videos/${this.props.selectedEntry.id}/comments/${commentId}?api_key=${API_KEY}`
-      )
+    deleteComment(this.props.selectedEntry.id, commentId)
       .then((response) => {
         this.props.getVideoDetails(this.props.selectedEntry.id);
       })
       .catch((error) => {
-        alert("Cannot delete the comment due to  ", error);
+        console.error(error);
       });
   };
   render() {

@@ -9,7 +9,7 @@ const postComment = (videoId, requestBody) => {
         requestBody
       )
       .then((response) => {
-        if (validateResponse(response)) {
+        if (validateAddCommentResponse(response)) {
           resolve(response.data);
         } else {
           reject("Unable to get a valid response");
@@ -21,7 +21,7 @@ const postComment = (videoId, requestBody) => {
   });
 };
 
-const validateResponse = (response) => {
+const validateAddCommentResponse = (response) => {
   if (
     response &&
     response.status === 200 &&
@@ -32,4 +32,25 @@ const validateResponse = (response) => {
   }
   return false;
 };
-export default postComment;
+const deleteComment = (videoId, commentId) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .delete(
+        `${API_URL}/videos/${videoId}/comments/${commentId}?api_key=${API_KEY}`
+      )
+      .then((response) => {
+        if (validateDeleteCommentResponse(response)) {
+          resolve(response);
+        }
+      })
+      .catch((error) => {
+        reject("Cannot delete the comment due to  ", error);
+      });
+  });
+};
+const validateDeleteCommentResponse = (response) => {
+  if (response && response.data && response.status === 200) {
+    return true;
+  } else return false;
+};
+export { postComment, deleteComment };

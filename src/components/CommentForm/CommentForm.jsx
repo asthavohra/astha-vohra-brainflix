@@ -2,8 +2,7 @@ import "./CommentForm.scss";
 import Avatar from "../Avatar/Avatar";
 import AvatarMobile from "../Avatar/AvatarMobile";
 import commentButton from "../../assets/icons/add_comment.svg";
-import axios from "axios";
-import postComment from "../../utils/api";
+import { postComment } from "../../utils/api";
 import { Component } from "react";
 
 class CommentForm extends Component {
