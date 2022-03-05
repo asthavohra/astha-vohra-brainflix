@@ -77,4 +77,24 @@ const validateVideoResponse = (response) => {
     return true;
   } else return false;
 };
-export { postComment, deleteComment, getVideos };
+
+const getVideoDetails = (videoId) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`${API_URL}/videos/${videoId}?api_key=${API_KEY}`)
+      .then((response) => {
+        if (validateVideoDetailsResponse(response)) {
+          resolve(response);
+        }
+      })
+      .catch((error) => {
+        reject("The error is ", error);
+      });
+  });
+};
+const validateVideoDetailsResponse = (response) => {
+  if (response && response.data && response.status === 200) {
+    return true;
+  } else return false;
+};
+export { postComment, deleteComment, getVideos, getVideoDetails };

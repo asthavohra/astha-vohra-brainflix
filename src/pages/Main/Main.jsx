@@ -4,9 +4,8 @@ import Hero from "../../components/Hero/Hero";
 import SelectedMediaInfo from "../../components/SelectedMediaInfo/SelectedMediaInfo";
 import MediaList from "../../components/MediaList/MediaList";
 import { ToastContainer } from "react-toastify";
-import { getVideos, API_KEY, API_URL } from "../../utils/api";
+import { getVideos, getVideoDetails } from "../../utils/api";
 import spinner from "../../assets/images/spinner.gif";
-import axios from "axios";
 class Main extends React.Component {
   state = {
     videos: [],
@@ -14,19 +13,6 @@ class Main extends React.Component {
     selectedVideoId: null,
   };
 
-  getVideoDetails = (videoId) => {
-    axios
-      .get(`${API_URL}/videos/${videoId}?api_key=${API_KEY}`)
-      .then((response) => {
-        this.setState({
-          selectedVideo: response.data,
-          selectedVideoId: response.data.id,
-        });
-      })
-      .catch((error) => {
-        console.error("Cannot get the details because ", error);
-      });
-  };
   componentDidMount() {
     getVideos()
       .then((response) => {
@@ -43,7 +29,16 @@ class Main extends React.Component {
   componentDidUpdate(_prevProps, prevState) {
     const videoId = this.props.match.params.videoId || this.state.videos[0].id;
     if (prevState.selectedVideoId !== videoId) {
-      return this.getVideoDetails(videoId);
+      getVideoDetails(videoId)
+        .then((response) => {
+          this.setState({
+            selectedVideo: response.data,
+            selectedVideoId: response.data.id,
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   }
 
