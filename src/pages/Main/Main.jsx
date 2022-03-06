@@ -12,13 +12,13 @@ class Main extends React.Component {
     selectedVideo: null,
     selectedVideoId: null,
   };
-
+  //calls getVideos function which is making axios call to fetch the video list
   componentDidMount() {
     getVideos()
       .then((response) => {
         this.setState({
-          videos: response.data,
-          selectedVideoId: response.data[0].id,
+          videos: response,
+          selectedVideoId: response[0].id,
         });
       })
       .catch((error) => {
@@ -26,11 +26,12 @@ class Main extends React.Component {
       });
   }
   getVideoDetailsFromApi = (videoId) => {
+    //get all details of a video for a particular videoId
     getVideoDetails(videoId)
       .then((response) => {
         this.setState({
-          selectedVideo: response.data,
-          selectedVideoId: response.data.id,
+          selectedVideo: response,
+          selectedVideoId: response.id,
         });
       })
       .catch((error) => {
@@ -38,7 +39,10 @@ class Main extends React.Component {
       });
   };
   componentDidUpdate(_prevProps, prevState) {
-    const videoId = this.props.match.params.videoId || this.state.videos[0].id;
+    //if user opens http:localhost3000/video/videoid we will use videoid from request or else we will use the
+    //selected video id updated in getVideos function
+    const videoId =
+      this.props.match.params.videoId || this.state.selectedVideoId;
     if (prevState.selectedVideoId !== videoId) {
       this.getVideoDetailsFromApi(videoId);
     }
@@ -65,6 +69,7 @@ class Main extends React.Component {
         <main className="main">
           <Hero selectedEntry={selectedVideo} />
           <section className="main__container">
+            {/* we are passing selected Video's Detail and getVideoDetailFromApi function refrence*/}
             <SelectedMediaInfo
               selectedEntry={selectedVideo}
               getVideoDetails={this.getVideoDetailsFromApi}

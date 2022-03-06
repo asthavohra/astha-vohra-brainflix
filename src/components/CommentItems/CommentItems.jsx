@@ -6,8 +6,10 @@ import { Component } from "react";
 
 class CommentItems extends Component {
   handleClick = (commentId) => {
+    //calls the deleteComment function written api.js
     deleteComment(this.props.selectedEntry.id, commentId)
       .then((response) => {
+        // //calling getVideoDetailsFromApi function defined in main.jsx
         this.props.getVideoDetails(this.props.selectedEntry.id);
       })
       .catch((error) => {
@@ -15,6 +17,9 @@ class CommentItems extends Component {
       });
   };
   render() {
+    {
+      /* fetched comments from selected entry and keep it in a variable called comments */
+    }
     const { comments } = this.props.selectedEntry;
     return (
       <>

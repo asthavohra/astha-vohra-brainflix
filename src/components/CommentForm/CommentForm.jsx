@@ -19,6 +19,7 @@ class CommentForm extends Component {
       this.setState({ hasError: false });
   };
 
+  //updating state.comment key with the value provided in text
   handleChangeForComment = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -32,11 +33,13 @@ class CommentForm extends Component {
   addComment = (event) => {
     event.preventDefault();
     if (this.isFormValid()) {
+      //fetch current video id from props and pass request body
       postComment(this.props.selectedEntry.id, {
         name: this.state.name,
         comment: this.state.comment,
       })
         .then((response) => {
+          //calling getVideoDetailsFromApi function defined in main.jsx
           this.props.getVideoDetails(this.props.selectedEntry.id);
           //clears the value in comment field after posting
           this.setState(this.initialState);

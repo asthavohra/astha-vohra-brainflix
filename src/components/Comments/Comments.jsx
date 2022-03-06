@@ -5,6 +5,7 @@ import CommentItems from "../CommentItems/CommentItems";
 
 class Comments extends Component {
   render() {
+    //get selectedEntry and getVideoDetails refrence from this.props
     const { selectedEntry, getVideoDetails } = this.props;
     const { comments } = selectedEntry;
     return (

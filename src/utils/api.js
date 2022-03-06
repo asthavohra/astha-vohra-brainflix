@@ -59,7 +59,7 @@ const getVideos = () => {
       )
       .then((response) => {
         if (validateVideoResponse(response)) {
-          resolve(response);
+          resolve(response.data);
         }
       })
       .catch((error) => {
@@ -86,7 +86,7 @@ const getVideoDetails = (videoId) => {
       )
       .then((response) => {
         if (validateVideoDetailsResponse(response)) {
-          resolve(response);
+          resolve(response.data);
         }
       })
       .catch((error) => {
