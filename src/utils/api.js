@@ -1,11 +1,9 @@
 import axios from "axios";
-export const API_URL = "https://project-2-api.herokuapp.com";
-export const API_KEY = "06c11c2f-28c0-423f-bf35-1cd14cdafdee";
 const postComment = (videoId, requestBody) => {
   return new Promise((resolve, reject) => {
     axios
       .post(
-        `${API_URL}/videos/${videoId}/comments?api_key=${API_KEY}`,
+        `${process.env.REACT_APP_API_URL}/videos/${videoId}/comments?api_key=${process.env.REACT_APP_API_KEY}`,
         requestBody
       )
       .then((response) => {
@@ -36,7 +34,7 @@ const deleteComment = (videoId, commentId) => {
   return new Promise((resolve, reject) => {
     axios
       .delete(
-        `${API_URL}/videos/${videoId}/comments/${commentId}?api_key=${API_KEY}`
+        `${process.env.REACT_APP_API_URL}/videos/${videoId}/comments/${commentId}?api_key=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
         if (validateDeleteCommentResponse(response)) {
@@ -56,7 +54,9 @@ const validateDeleteCommentResponse = (response) => {
 const getVideos = () => {
   return new Promise((resolve, reject) => {
     axios
-      .get(`${API_URL}/videos?api_key=${API_KEY}`)
+      .get(
+        `${process.env.REACT_APP_API_URL}/videos?api_key=${process.env.REACT_APP_API_KEY}`
+      )
       .then((response) => {
         if (validateVideoResponse(response)) {
           resolve(response);
@@ -81,7 +81,9 @@ const validateVideoResponse = (response) => {
 const getVideoDetails = (videoId) => {
   return new Promise((resolve, reject) => {
     axios
-      .get(`${API_URL}/videos/${videoId}?api_key=${API_KEY}`)
+      .get(
+        `${process.env.REACT_APP_API_URL}/videos/${videoId}?api_key=${process.env.REACT_APP_API_KEY}`
+      )
       .then((response) => {
         if (validateVideoDetailsResponse(response)) {
           resolve(response);

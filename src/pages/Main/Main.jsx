@@ -25,23 +25,24 @@ class Main extends React.Component {
         console.error(error);
       });
   }
-
+  getVideoDetailsFromApi = (videoId) => {
+    getVideoDetails(videoId)
+      .then((response) => {
+        this.setState({
+          selectedVideo: response.data,
+          selectedVideoId: response.data.id,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   componentDidUpdate(_prevProps, prevState) {
     const videoId = this.props.match.params.videoId || this.state.videos[0].id;
     if (prevState.selectedVideoId !== videoId) {
-      getVideoDetails(videoId)
-        .then((response) => {
-          this.setState({
-            selectedVideo: response.data,
-            selectedVideoId: response.data.id,
-          });
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      this.getVideoDetailsFromApi(videoId);
     }
   }
-
   render() {
     const { videos, selectedVideo } = this.state;
 
@@ -66,7 +67,7 @@ class Main extends React.Component {
           <section className="main__container">
             <SelectedMediaInfo
               selectedEntry={selectedVideo}
-              getVideoDetails={this.getVideoDetails}
+              getVideoDetails={this.getVideoDetailsFromApi}
             />
             <MediaList
               entries={videos.filter((video) => video.id !== selectedVideo.id)}
