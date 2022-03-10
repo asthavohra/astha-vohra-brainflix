@@ -35,7 +35,8 @@ function VideoUploadPage(props) {
     toast
       .promise(postVideoPromise, {
         pending: "Video upload in progress",
-        success: "Promise resolved ",
+        success:
+          "Video Upload in Progress.You will be redirected to home page   ",
         error:
           "Cannot Upload the Video at moment!You will be redirected to home page soon ",
         autoClose: 5000,
