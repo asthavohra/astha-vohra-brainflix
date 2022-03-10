@@ -4,21 +4,39 @@ import thumbnail from "../../assets/images/Upload-video-preview.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import publishButton from "../../assets/icons/publish.svg";
+import { postVideo } from "../../utils/api";
 
 function VideoUploadPage(props) {
+  let requestData = {
+    title: "",
+    description: "",
+  };
+  function handleVideoTitleChange(event) {
+    requestData.title = event.target.value;
+  }
+  function handleVideoDescriptionChange(event) {
+    requestData.description = event.target.value;
+  }
   function pushBack(event) {
+    console.log(requestData);
+    const postVideoPromise = new Promise((resolve, reject) => {
+      postVideo(requestData)
+        .then((response) => {
+          resolve(response);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+
     // Prevents the form from reloading the page when submitted
     event.preventDefault();
-    const resolveAfter3Sec = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        reject("I have no error, I will be resolve");
-      }, 3000);
-    });
     //Used toastify to show pending and error toast after clicking on Publish
     toast
-      .promise(resolveAfter3Sec, {
+      .promise(postVideoPromise, {
         pending: "Video upload in progress",
-        success: "Promise resolved ",
+        success:
+          "Video Upload in Progress.You will be redirected to home page   ",
         error:
           "Cannot Upload the Video at moment!You will be redirected to home page soon ",
         autoClose: 5000,
@@ -60,6 +78,7 @@ function VideoUploadPage(props) {
               name="videoTitle"
               className="upload-form__input-txt"
               placeholder="Add a title to your video"
+              onChange={handleVideoTitleChange}
             />
 
             <label htmlFor="videoDescription" className="upload-form__label">
@@ -70,6 +89,7 @@ function VideoUploadPage(props) {
               name="videoDescription"
               className="upload-form__textarea"
               placeholder="Add a description of your video"
+              onChange={handleVideoDescriptionChange}
             ></textarea>
           </div>
         </div>

@@ -1,4 +1,29 @@
 import axios from "axios";
+const postVideo = (requestBody) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/videos`, requestBody)
+      .then((response) => {
+        if (validateAddVideoResponse(response)) {
+          resolve(response.data);
+        } else {
+          reject("Unable to add video");
+        }
+      });
+  });
+};
+
+const validateAddVideoResponse = (response) => {
+  if (
+    response &&
+    response.status === 200 &&
+    response.data &&
+    response.data.timestamp
+  ) {
+    return true;
+  }
+  return false;
+};
 const postComment = (videoId, requestBody) => {
   return new Promise((resolve, reject) => {
     axios
@@ -99,4 +124,4 @@ const validateVideoDetailsResponse = (response) => {
     return true;
   } else return false;
 };
-export { postComment, deleteComment, getVideos, getVideoDetails };
+export { postComment, deleteComment, getVideos, getVideoDetails, postVideo };
