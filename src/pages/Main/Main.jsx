@@ -45,6 +45,11 @@ class Main extends React.Component {
       this.props.match.params.videoId || this.state.selectedVideoId;
     if (prevState.selectedVideoId !== videoId) {
       this.getVideoDetailsFromApi(videoId);
+      window.scroll({
+        top: 0,
+        left: 100,
+        behavior: "smooth",
+      });
     }
   }
   render() {
