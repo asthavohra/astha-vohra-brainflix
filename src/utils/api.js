@@ -28,7 +28,7 @@ const postComment = (videoId, requestBody) => {
   return new Promise((resolve, reject) => {
     axios
       .post(
-        `${process.env.REACT_APP_API_URL}/videos/${videoId}/comments?api_key=${process.env.REACT_APP_API_KEY}`,
+        `${process.env.REACT_APP_API_URL}/videos/${videoId}/comments`,
         requestBody
       )
       .then((response) => {
@@ -59,7 +59,7 @@ const deleteComment = (videoId, commentId) => {
   return new Promise((resolve, reject) => {
     axios
       .delete(
-        `${process.env.REACT_APP_API_URL}/videos/${videoId}/comments/${commentId}?api_key=${process.env.REACT_APP_API_KEY}`
+        `${process.env.REACT_APP_API_URL}/videos/${videoId}/comments/${commentId}`
       )
       .then((response) => {
         if (validateDeleteCommentResponse(response)) {
@@ -79,9 +79,7 @@ const validateDeleteCommentResponse = (response) => {
 const getVideos = () => {
   return new Promise((resolve, reject) => {
     axios
-      .get(
-        `${process.env.REACT_APP_API_URL}/videos?api_key=${process.env.REACT_APP_API_KEY}`
-      )
+      .get(`${process.env.REACT_APP_API_URL}/videos`)
       .then((response) => {
         if (validateVideoResponse(response)) {
           resolve(response.data);
@@ -106,9 +104,7 @@ const validateVideoResponse = (response) => {
 const getVideoDetails = (videoId) => {
   return new Promise((resolve, reject) => {
     axios
-      .get(
-        `${process.env.REACT_APP_API_URL}/videos/${videoId}?api_key=${process.env.REACT_APP_API_KEY}`
-      )
+      .get(`${process.env.REACT_APP_API_URL}/videos/${videoId}`)
       .then((response) => {
         if (validateVideoDetailsResponse(response)) {
           resolve(response.data);
