@@ -136,6 +136,9 @@
     @include form-input;
     height: 1rem;
     padding: 1rem;
+    &-error {
+      border: 0.125rem solid #d22d2d;
+    }
 
     &::placeholder {
       color: $primary-black;
@@ -151,6 +154,9 @@
     @include form-input;
     height: 5rem;
     padding: 1rem;
+    &-error {
+      border: 0.125rem solid #d22d2d;
+    }
 
     @include large {
       height: 4.5rem;
