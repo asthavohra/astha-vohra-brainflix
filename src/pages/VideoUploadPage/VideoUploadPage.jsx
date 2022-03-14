@@ -89,7 +89,7 @@ class VideoUploadPage extends Component {
       .finally(() => {
         setTimeout(() => {
           //Takes back to home page
-          this.props.history.push(`/videos/${uploadedVideoId}`);
+          this.props.history.push("/");
         }, 5000);
       });
   };
