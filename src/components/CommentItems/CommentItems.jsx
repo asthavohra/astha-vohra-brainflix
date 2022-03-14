@@ -3,6 +3,7 @@ import moment from "moment";
 import deleteIcon from "../../assets/icons/icon-delete.svg";
 import { deleteComment } from "../../utils/api";
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 class CommentItems extends Component {
   handleClick = (commentId) => {
@@ -52,12 +53,14 @@ class CommentItems extends Component {
                     <p>{comment.comment}</p>
                   </div>
                   <div className="comment__right-buttons">
-                    <img
-                      onClick={() => this.handleClick(comment.id)}
-                      className="comment__like-btn"
-                      src={deleteIcon}
-                      alt="Delete Icon"
-                    />
+                    <Link>
+                      <img
+                        onClick={() => this.handleClick(comment.id)}
+                        className="comment__like-btn"
+                        src={deleteIcon}
+                        alt="Delete Icon"
+                      />
+                    </Link>
                   </div>
                 </div>
               </article>
